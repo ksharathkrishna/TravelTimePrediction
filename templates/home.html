@@ -1,0 +1,165 @@
+<html>
+
+<head >
+    <title>Travel Time Prediction</title>
+    <link rel="stylesheet" type="text/css" href="../static/home.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<div class="split left">
+
+    <div class="footer text-center" style= "color:white ;background-color: #4285F4">
+        <br><br>
+    <h1>Travel Time Predictor </h1>
+    <br>
+    </div>
+
+    <div class="centered">
+        <div class="container" style="width:150%">
+        <br/>
+        <h2 align = "center" >Enter Details</h2>
+        <hr>
+        <form align = "center" name="my" onsubmit="return validateForm()" method="post" action="/predict" >
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <select type="number" pattern=\d* required class="form-control form-control-lg" name="source" id="source" placeholder="From" style="background-color: #f7f7f7">
+                    <option value="0" disabled="disabled" selected="selected">Source</option>
+                    <option value="1">sdad</option>
+                    <option value="2">dsa</option>
+                    <option value="3">dsa</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <select type="number" pattern=\d* required class="form-control form-control-lg" name="destination" id="destination" placeholder="To"style="background-color: #f7f7f7">
+                    <option value="0" disabled="disabled" selected="selected">Destination</option>
+                    <option value="1">sdad</option>
+                    <option value="2">dsa</option>
+                    <option value="3">dsa</option>
+                </select>
+            </div>
+        </div>
+
+            <div class="form-group">
+                <select type="number" pattern=\d* required class="form-control form-control-lg" name="timezone" id="timezone" placeholder="TimeZone" style="background-color:#f7f7f7 ">
+                    <option value="0" disabled="disabled" selected="selected">Time Zone</option>
+                    <option value="54">6 AM - 11 AM</option>
+                    <option value="81">11 AM - 4 PM</option>
+                    <option value="108">4 PM - 8 PM</option>
+                    <option value="129">8 PM - 11 PM</option>
+                    <option value="15">11 PM - 6 AM</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <select type="number" pattern=\d*  required class="form-control form-control-lg" name="day" id="day" placeholder="Day"style="background-color:#f7f7f7 ">
+                    <option value="0" disabled="disabled" selected="selected">Day</option>
+                    <option value="1">Sunday</option>
+                    <option value="2">Monday</option>
+                    <option value="3">Tuesday</option>
+                    <option value="4">Wednesday</option>
+                    <option value="5">Thursday</option>
+                    <option value="6">Friday</option>
+                    <option value="7">Saturday</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <select type="number" required pattern=\d*  class="form-control form-control-lg" name="weather" id="weather" placeholder="Weather Condition"style="background-color:#f7f7f7 ">
+                    <option value="0" disabled="disabled" selected="selected">Weather Condition</option>\
+                    <option value="11">Showers</option>
+                    <option value="31">Clear</option>
+                    <option value="43">Heavy Snow</option>
+                    <option value="4">Thunderstorms</option>
+                    <option value="24">Windy</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="number" required com min="5" max="122" class="form-control form-control-lg" name="temp" id="temp" placeholder="Temp in Fahrenheit"style="background-color: #f7f7f7">
+            </div>
+
+
+
+            <button type="submit" value="Add" class="btn btn-success btn-block"><h2>Predict</h2></button>
+        </form>
+        </div>
+    </div>
+</div>
+ <script>
+     function validateForm() {
+         var s= document.forms["my"]["source"].value;
+         var d= document.forms["my"]["destination"].value;
+
+         if(s==d){
+             alert("Source and Destination can not be same");
+             return false;
+         }
+
+         var x = document.forms["my"]["source"].value;
+
+         if (x == 0) {
+            alert("Select Source");
+            return false;
+         }
+          var x = document.forms["my"]["destination"].value;
+         if (x == 0) {
+                alert("Select Destination");
+                return false;
+         } var x = document.forms["my"]["timezone"].value;
+         if (x == 0) {
+                alert("Select TimeZone");
+                return false;
+         } var x = document.forms["my"]["weather"].value;
+         if (x == 0) {
+                alert("Select Weather");
+                return false;
+         }
+    }
+ </script>
+
+
+<div class="split right">
+
+    <div class="footer text-center" style= "color:white;background-color: #4285F4">
+        <br><br>
+    <h1>Map</h1>
+    <br>
+    </div>
+
+    <div class="centered">
+
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.crocothemes.net"></a></div><style>.mapouter{text-align:right;height:300px;width:420px;}.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:100%;}</style></div>
+
+
+<script>
+    function myMap() {
+    function myMap() {
+    var mapOptions = {
+        center: new google.maps.LatLng(51.5, -0.12),
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    }
+    }
+</script>
+
+    </div>
+  </div>
+</div>
+
+<div class="fo">
+    <span style="color: black ;">&copy; 2019 TTP. All Rights Reserved.  </span>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <br>
+    <a href="#" class="fa fa-instagram"></a>
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-snapchat-ghost"></a>
+    <br>
+
+    </div>
+
+</body>
+</html>
