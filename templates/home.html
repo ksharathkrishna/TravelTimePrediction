@@ -25,18 +25,18 @@
             <div class="form-group col-md-6">
                 <select type="number" pattern=\d* required class="form-control form-control-lg" name="source" id="source" placeholder="From" style="background-color: #f7f7f7">
                     <option value="0" disabled="disabled" selected="selected">Source</option>
-                    <option value="1">sdad</option>
-                    <option value="2">dsa</option>
-                    <option value="3">dsa</option>
+                    <option value="1">Cole Valley</option>
+                    <option value="2">UCSF Medical Center</option>
+                    <option value="3">Sf General Hospital</option>
                 </select>
             </div>
 
             <div class="form-group col-md-6">
                 <select type="number" pattern=\d* required class="form-control form-control-lg" name="destination" id="destination" placeholder="To"style="background-color: #f7f7f7">
                     <option value="0" disabled="disabled" selected="selected">Destination</option>
-                    <option value="1">sdad</option>
-                    <option value="2">dsa</option>
-                    <option value="3">dsa</option>
+                    <option value="1">Cole Valley</option>
+                    <option value="2">UCSF Medical Center</option>
+                    <option value="3">Sf General Hospital</option>
                 </select>
             </div>
         </div>
@@ -44,11 +44,13 @@
             <div class="form-group">
                 <select type="number" pattern=\d* required class="form-control form-control-lg" name="timezone" id="timezone" placeholder="TimeZone" style="background-color:#f7f7f7 ">
                     <option value="0" disabled="disabled" selected="selected">Time Zone</option>
-                    <option value="54">6 AM - 11 AM</option>
-                    <option value="81">11 AM - 4 PM</option>
-                    <option value="108">4 PM - 8 PM</option>
-                    <option value="129">8 PM - 11 PM</option>
-                    <option value="15">11 PM - 6 AM</option>
+                    <pre>
+                    <option value="54">06 AM  - 11 AM</option>
+                    <option value="81">11 AM - 04 PM</option>
+                    <option value="108">04 PM  -  08 PM</option>
+                    <option value="129">08 PM  - 11 PM</option>
+                    <option value="15">11 PM  - 06 AM</option>
+                    </pre>
                 </select>
             </div>
 
@@ -68,7 +70,7 @@
                 <select type="number" required pattern=\d*  class="form-control form-control-lg" name="weather" id="weather" placeholder="Weather Condition"style="background-color:#f7f7f7 ">
                     <option value="0" disabled="disabled" selected="selected">Weather Condition</option>\
                     <option value="11">Showers</option>
-                    <option value="31">Clear</option>
+                    <option value="31">Clear</opt ion>
                     <option value="43">Heavy Snow</option>
                     <option value="4">Thunderstorms</option>
                     <option value="24">Windy</option>
@@ -92,7 +94,7 @@
          var d= document.forms["my"]["destination"].value;
 
          if(s==d){
-             alert("Source and Destination can not be same");
+             alert("Source and Destination cannot be same");
              return false;
          }
 
@@ -108,9 +110,14 @@
                 return false;
          } var x = document.forms["my"]["timezone"].value;
          if (x == 0) {
-                alert("Select TimeZone");
+                alert("Select Time Zone");
                 return false;
-         } var x = document.forms["my"]["weather"].value;
+         } var x = document.forms["my"]["day"].value;
+         if (x == 0) {
+                alert("Select Day");
+                return false;
+         }
+         var x = document.forms["my"]["weather"].value;
          if (x == 0) {
                 alert("Select Weather");
                 return false;
